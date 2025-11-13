@@ -1,0 +1,17 @@
+name: mnist_env_gpu
+channels:
+  - pytorch
+  - nvidia
+  - defaults
+dependencies:
+  - python=3.10
+  - pytorch
+  - torchvision
+  - torchaudio
+  - pytorch-cuda=12.1
+  - cudatoolkit
+  - pip
+  - pip:
+    - Django==4.2.0
+    - Pillow==10.0.0
+    - numpy==1.24.0

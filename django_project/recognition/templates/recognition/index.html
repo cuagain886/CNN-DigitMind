@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MNIST手写数字识别</title>
+    {% load static %}
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔢 MNIST手写数字识别</h1>
+            <p>使用PyTorch深度学习模型识别手写数字</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="canvas">手写板</button>
+                    <button class="tab-btn" data-tab="upload">上传图片</button>
+                </div>
+
+                <!-- 手写板 -->
+                <div id="canvas-tab" class="tab-content active">
+                    <div class="canvas-container">
+                        <canvas id="drawCanvas" width="280" height="280"></canvas>
+                    </div>
+                    <div class="button-group">
+                        <button id="clearBtn" class="btn btn-secondary">清除</button>
+                        <button id="recognizeBtn" class="btn btn-primary">识别</button>
+                    </div>
+                </div>
+
+                <!-- 上传图片 -->
+                <div id="upload-tab" class="tab-content">
+                    <div class="upload-container">
+                        <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                        <div id="uploadArea" class="upload-area">
+                            <p>点击或拖拽图片到此处</p>
+                            <p class="upload-hint">支持 PNG, JPG, JPEG 格式</p>
+                        </div>
+                        <img id="previewImage" class="preview-image" style="display: none;">
+                    </div>
+                    <div class="button-group">
+                        <button id="uploadBtn" class="btn btn-primary">识别图片</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 结果显示 -->
+            <div class="result-section">
+                <h2>识别结果</h2>
+                <div id="resultDisplay" class="result-display">
+                    <div class="predicted-digit">
+                        <span class="digit-label">预测数字:</span>
+                        <span id="predictedDigit" class="digit-value">-</span>
+                    </div>
+                    <div class="confidence">
+                        <span class="confidence-label">置信度:</span>
+                        <span id="confidenceValue" class="confidence-value">-</span>
+                    </div>
+                    <div class="probabilities">
+                        <h3>各数字概率分布</h3>
+                        <div id="probabilityBars" class="probability-bars"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>基于 Django + PyTorch 实现 | MNIST数据集</p>
+        </footer>
+    </div>
+
+    <script src="{% static 'js/canvas.js' %}"></script>
+</body>
+</html>
