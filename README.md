@@ -228,9 +228,6 @@ A: 修改`main.py`中的端口号：`subprocess.run([sys.executable, 'manage.py'
 
 MIT License
 
-## 作者
-
-202330451531_饶小峰
 
 ## 更新日志
 
