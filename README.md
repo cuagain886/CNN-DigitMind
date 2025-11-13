@@ -38,6 +38,19 @@
 | **Pillow**      | 10.0.0          | 图像处理     |
 | **CUDA**        | 12.1 (兼容12.9) | GPU加速      |
 
+```
+#如果要使用gpu训练模型可执行（否则可忽略）
+# 1. 安装兼容版本
+pip install torch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 --index-url https://download.pytorch.org/whl/cu121
+
+# 2. 确保NumPy正确
+pip install numpy==1.24.0
+
+# 3. 验证
+python -c "import torch; import torchvision; print('PyTorch:', torch.__version__); print('torchvision:', torchvision.__version__); print('CUDA:', torch.cuda.is_available())"
+
+```
+
 ### 2. 训练模型
 
 ```bash
